@@ -17,34 +17,50 @@ while True:
 
     choice = int(input("Enter your choice 1-3 (or 0 to quit):"))
 
-    while choice:
-        if choice == 1:
-            for i in range(3):
-                day_of_week = int(input("Enter a day 1-7 (or 0 to exit to menu):"))
+    if choice == 1:
+        day_of_week = int(input("Enter a day 1-7 :"))
 
-                print("1)Morning \n2)Day\n3)Night")
+        if day_of_week in range(1,8):
+            print("1)Morning \n2)Day\n3)Night")
 
-                time_of_day = int(input("Enter your choice 1-3 (or 0 to exit to menu):"))
-                temperature = float(input("Enter temperature (or 0 to exit to menu):"))
+            time_of_day = int(input("Enter your choice 1-3 :"))
 
-                if temps_for_a_week_per_day[day_of_week -1] :
-                    for days_of_week in temps_for_a_week_per_day:
-                        days_of_week[time_of_day-1] = temperature
-                        print(temps_for_a_week_per_day)
-                        break
+            if time_of_day in range(1,4):
+                temperature = float(input("Enter temperature :"))
 
+                temps_for_a_week_per_day[day_of_week - 1][time_of_day - 1] = temperature
 
-
-
-        elif choice == 2:
-            pass
-
-        elif choice == 3:
-            pass
-
-        elif choice == 0:
-            quit()
+            else:
+                print("Enter a valid hour!")
 
         else:
-            print("Invalid input!")
+            print("Enter valid date!")
+
+    elif choice == 2:
+        day_of_week = int(input("Enter a day 1-7 :"))
+
+        if day_of_week in range(1, 8):
+            print(f"Your temperature for the day is : {temps_for_a_week_per_day[day_of_week - 1][time_of_day - 1]}")
+
+        else:
+            print("Enter valid date!")
+
+    elif choice == 3:
+        day_of_week = int(input("Enter a day 1-7 :"))
+
+        if day_of_week in range(1, 8):
+            print(f"Average temperature for the given day : {sum(temps_for_a_week_per_day[day_of_week - 1]) / 3}")
+
+    elif choice == 4:
+        total = 0
+        for day in temps_for_a_week_per_day:
+            for temp in day:
+                total += temp
+        print(f"Average temperature of the week : {total/21}")
+
+    elif choice == 0:
+        quit()
+
+    else:
+        print("Invalid input!")
 
