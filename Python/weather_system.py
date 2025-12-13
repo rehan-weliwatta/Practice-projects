@@ -62,5 +62,5 @@ while True:
         quit()
 
     else:
-        print("Invalid input!")
+        print("Invalid input")
 
