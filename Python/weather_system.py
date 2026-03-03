@@ -56,7 +56,7 @@ while True:
         for day in temps_for_a_week_per_day:
             for temp in day:
                 total += temp
-        print(f"Average temperature of the week : {total/21}")
+        print(f"Average temperature of the week : {total / 21}")
 
     elif choice == 0:
         quit()
